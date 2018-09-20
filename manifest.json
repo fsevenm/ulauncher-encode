@@ -12,7 +12,7 @@
         {
             "id": "encoder_kw",
             "type": "keyword",
-            "name": "Keyword",
+            "name": "Encode",
             "default_value": "encode"
         }
     ]
