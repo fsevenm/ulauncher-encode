@@ -1,6 +1,6 @@
 import logging
 import base64
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import cgi
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
@@ -26,7 +26,7 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         base64Text = base64.b64encode(event.get_argument())
-        urlEncoded = urllib.quote_plus(event.get_argument())
+        urlEncoded = urllib.parse.quote_plus(event.get_argument())
 
         htmlEncoded = cgi.escape(event.get_argument())
         items.append(ExtensionResultItem(icon='images/icon.png',
