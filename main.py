@@ -25,7 +25,8 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         items = []
 
-        base64Text = base64.b64encode(event.get_argument().encode("utf-8"))
+        raw_char = event.get_argument()
+        base64Text = base64.b64encode(raw_char)
         urlEncoded = urllib.parse.quote_plus(event.get_argument())
 
         htmlEncoded = cgi.escape(event.get_argument())
