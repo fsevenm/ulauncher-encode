@@ -36,7 +36,7 @@ class KeywordQueryEventListener(EventListener):
             urlEncoded = ""
             htmlEncoded = ""
         items.append(ExtensionResultItem(icon='images/icon.png',
-                                         name=base64Text,
+                                         name="efefe",
                                          description='Base64 Encoded',
                                          highlightable=False,
                                          on_enter=CopyToClipboardAction(urlEncoded)
