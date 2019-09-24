@@ -38,7 +38,8 @@ class KeywordQueryEventListener(EventListener):
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name=base64Text,
                                          description='Base64 Encoded',
-                                         highlightable=False
+                                         highlightable=False,
+                                         on_enter=CopyToClipboardAction(urlEncoded)
                                          ))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
