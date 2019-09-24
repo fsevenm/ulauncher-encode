@@ -1,6 +1,6 @@
 import logging
 import base64
-import urllib.request, urllib.parse, urllib.error
+import urllib
 import cgi
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
