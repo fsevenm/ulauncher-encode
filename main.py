@@ -39,7 +39,7 @@ class KeywordQueryEventListener(EventListener):
                                          name=base64Text,
                                          description='Base64 Encoded',
                                          highlightable=False,
-                                         on_enter=CopyToClipboardAction(base64Text.decode("utf-8"))
+                                         on_enter=CopyToClipboardAction("fefe")
                                          ))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
