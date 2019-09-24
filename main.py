@@ -26,20 +26,17 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         raw_char = event.get_argument()
-        if raw_char is not None:
-            base64Text = base64.b64encode(raw_char.encode("utf-8"))
-            urlEncoded = urllib.parse.quote_plus(event.get_argument())
+        # if raw_char is not None:
+        base64Text = base64.b64encode(raw_char.encode("utf-8"))
+        urlEncoded = urllib.parse.quote_plus(event.get_argument())
 
-            htmlEncoded = cgi.escape(event.get_argument())
-        else:
-            base64Text = ""
-            urlEncoded = ""
-            htmlEncoded = ""
+        htmlEncoded = cgi.escape(event.get_argument())
+
         items.append(ExtensionResultItem(icon='images/icon.png',
-                                         name="efefe",
+                                         name=base64Text.decode("utf-8"),
                                          description='Base64 Encoded',
                                          highlightable=False,
-                                         on_enter=CopyToClipboardAction(urlEncoded)
+                                         on_enter=CopyToClipboardAction(base64Text)
                                          ))
 
         items.append(ExtensionResultItem(icon='images/icon.png',
