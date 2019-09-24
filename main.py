@@ -25,11 +25,13 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         items = []
 
-        # raw_char = event.get_argument()
-        base64Text = base64.b64encode(event.get_argument().encode("utf-8")).decode("utf-8")
-        urlEncoded = urllib.parse.quote_plus(event.get_argument())
+        rawstr = event.get_argument()
+        if rawstr is None:
+            rawstr = ""
 
-        htmlEncoded = cgi.escape(event.get_argument())
+        base64Text = base64.b64encode(rawstr.encode("utf-8")).decode("utf-8")
+        urlEncoded = urllib.parse.quote_plus(rawstr)
+        htmlEncoded = cgi.escape(rawstr)
 
         items.append(ExtensionResultItem(icon='images/icon.png',
                                          name=base64Text,
